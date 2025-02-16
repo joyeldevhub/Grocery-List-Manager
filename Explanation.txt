@@ -1,0 +1,112 @@
+Grocery List Manager
+This Python script allows users to manage their grocery list by adding, removing, viewing, and clearing items. The program runs in a loop until the user decides to exit.
+
+Code Explanation
+1. Initialize the Grocery List
+An empty list named grocery_list is created to store the grocery items.
+
+python:
+grocery_list = []
+
+2. Define the display_list Function
+This function displays a menu of options to the user and handles the logic for each option.
+
+python:
+def display_list():
+
+3. Display the Menu
+The user is presented with a menu of options:
+
+=> Add an item
+=> Remove an item
+=> View the list
+=> Clear the list
+=> Exit
+
+python:
+print("What would you like to do?")
+print("1. Add an item")
+print("2. Remove an item")
+print("3. View your item")
+print("4. Clear your item")
+print("5. exit")
+
+4. Get User Input
+The user selects an option by entering a number (1-5).
+
+python:
+selection = (int(input("Enter the option: ")))
+
+5. Add an Item (Option 1)
+If the user selects option 1, they can add items to the list.
+The user is prompted to enter items one by one. To stop adding items, the user types stop.
+
+python:
+if selection == 1:
+    while True:
+        item = input("Enter an item (and want to stop the loop, type 'stop'): ")
+        if item.lower() == 'stop':
+            break
+        grocery_list.append(item)
+
+6. Remove an Item (Option 2)
+If the user selects option 2, they can remove an item from the list.
+The user is prompted to enter the name of the item they want to remove. 
+If the item is in the list, it is removed; otherwise, a message is displayed indicating that the item is not in the list.
+
+python:
+if selection == 2:
+    print(grocery_list)
+    name = (input("Enter the item name to remove: "))
+    if name in grocery_list:
+        grocery_list.remove(name)
+        print("Entered item has removed from list")
+    else: 
+        print("Entered item is not in list. Kindly check the list again and proceed.")
+
+7. View the List (Option 3)
+If the user selects option 3, the current grocery list is displayed.
+The enumerate function is used to display the items with a numbered index, starting from 1.
+
+python:
+if selection == 3:
+    print(grocery_list)
+    for list in enumerate(grocery_list, start=1):
+        print(list)
+
+8. Clear the List (Option 4)
+If the user selects option 4, the entire grocery list is cleared.
+
+python:
+if selection == 4:
+    print(grocery_list)
+    grocery_list.clear()
+
+9. Exit the Program (Option 5)
+If the user selects option 5, the program exits after displaying the final grocery list.
+
+python:
+if selection == 5:
+    print("Start purchasing, your list has been ready!!!")
+    print(grocery_list)
+    exit()
+
+10. Run the Program in a Loop
+The display_list function is called in an infinite loop, allowing the user to perform multiple actions until they choose to exit.
+
+python:
+while True:
+    display_list()
+
+How to Use the Program?
+
+=> Run the Script: Execute the Python script in your terminal or IDE.
+=> Follow the Prompts: Use the menu to add, remove, view, or clear items from your grocery list.
+=> Exit: When you're done, select option 5 to exit the program.
+
+What I Learned?
+
+=> Function Looping: I learned how to loop through functions to create an interactive menu.
+=> While Loops: I gained an understanding of how to use while loops to keep the program running until the user decides to exit.
+=> Enumerate Method: I learned how to use the enumerate method to display list items with a numbered index.
+=> Conditions: I worked with conditional statements to handle different user inputs and actions.
